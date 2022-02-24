@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slowhale Store | Shipping</title>
+
+    <!-- bootstrap cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- my styles -->
+    <link rel="stylesheet" href="../../styless.css" />
+
+    <!-- Google Fonts -->
+    <!-- Fonts listed below:
+    Lobster two: used in the main navbar heading, the banner message and most headings
+    Ubuntu: used through the website as the main font
+  Lobster: Used in the footer name -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:ital@1&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- The following is the navbar -->
+    <nav id="navbar">
+      <!-- store name -->
+      <h1 id="storeName">Slowhale Store</h1>
+
+      <!-- list acting as the navbar links -->
+      <ul id="navList">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../catalogue/index.html">Catalogue</a></li>
+        <li><a href="../shipping/index.html">Shipping</a></li>
+        <li><a href="#navbar">Get in touch!</a></li>
+      </ul>
+      <!--  -->
+    </nav>
+    <!-- End of navabr -->
+
+    <!-- Shipping form -->
+    <div id="contactContainer">
+      <div class="contactContainer">
+          <!-- customer information -->
+
+            <h3 class="contactMessage">Hey, We'd love to hear from you!</h3>
+            <p class="contactMessage">Do you have anything to say? <br>
+            Want to leave a review or just say hi? <br>
+        Leave us a message below and we will get back to you! <br>
+    We love and appreicate all our clients and any feedback would be greatly appreicated.</p>
+
+          <form class="row g-3">
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="inputName"
+                placeholder="First Name *"
+              />
+            </div>
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="inputSurname"
+                placeholder="Last Name *"
+              />
+            </div>
+            <div class="col-12">
+              <input
+                type="email"
+                class="form-control"
+                id="inputCompany"
+                placeholder="Email *"
+              />
+            </div>
+            <div class="col-12">
+              <textarea name="comment" 
+                class="form-control" 
+                form="usrform"
+                placeholder="Enter your message here..."></textarea>
+            </div>
+            <div class="col-12">
+              <!-- submit button -->
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer section -->
+    <footer id="footer">
+      <h2 id="footerName">Slowhale Store</h2>
+      <!-- We'll be using a the grid layout prioided by bootstrap -->
+      <div id="footerContainer" class="container">
+        <div class="row">
+          <!-- column 1 will have more links to different pages -->
+          <div class="col">
+            <ul class="footerList">
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../catalogue/index.html">Catalogue</a></li>
+              <li><a href="../shipping/index.html">Shipping</a></li>
+              <li><a href="#navbar">Contact us</a></li>
+            </ul>
+          </div>
+          <!--  -->
+
+          <!-- column 2 will have usual footer information (FAQ, Shipping ect) -->
+          <div class="col">
+            <ul class="footerList">
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Shipping & Returns</a></li>
+              <li><a href="#">Payment methods</a></li>
+              <li><a href="#">Leave a review</a></li>
+            </ul>
+          </div>
+          <!--  -->
+
+          <!-- column 3 will have more links to different social media -->
+          <div class="col">
+            <ul class="footerList">
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Pinterest</a></li>
+            </ul>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- javscript -->
+    <!-- bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slowhale Store | Shipping</title>
+
+    <!-- bootstrap cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- my styles -->
+    <link rel="stylesheet" href="../../styless.css" />
+
+    <!-- Google Fonts -->
+    <!-- Fonts listed below:
+    Lobster two: used in the main navbar heading, the banner message and most headings
+    Ubuntu: used through the website as the main font
+  Lobster: Used in the footer name -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:ital@1&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="shipping">
+    <!-- The following is the navbar -->
+    <nav id="navbar">
+      <!-- store name -->
+      <h1 id="storeName">Slowhale Store</h1>
+
+      <!-- list acting as the navbar links -->
+      <ul id="navList">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../catalogue/index.html">Catalogue</a></li>
+        <li><a href="#navbar">Shipping</a></li>
+        <li><a href="../contact/index.html">Get in touch</a></li>
+      </ul>
+      <!--  -->
+    </nav>
+    <!-- End of navabr -->
+
+    <!-- Shipping form -->
+    <div id="shippingContainer">
+      <div class="shippingContainer">
+        <div class="shippingForm">
+          <!-- Name of shiping comany -->
+          <h2>RandomShipping Company</h2>
+          <!-- directory -->
+          <p>
+            <span class="dark">information</span> >
+            <span class="hover">Shopping</span> >
+            <span class="hover">Payment</span>
+          </p>
+          <!-- customer information -->
+          <form class="row g-3">
+            <br />
+            <h2>Customer information</h2>
+            <br />
+            <div class="col-md-6">
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail"
+                placeholder="Enter a valid Email"
+              />
+            </div>
+            <div class="col-md-6">
+              <input
+                type="tel"
+                class="form-control"
+                id="inputPhoneNumber"
+                placeholder="Phone number"
+              />
+            </div>
+            <!--  -->
+            <br />
+            <!-- Shipping information -->
+            <h2>Shipping address</h2>
+            <br />
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="inputName"
+                placeholder="First Name *"
+              />
+            </div>
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="inputSurname"
+                placeholder="Last Name *"
+              />
+            </div>
+            <div class="col-12">
+              <input
+                type="text"
+                class="form-control"
+                id="inputCompany"
+                placeholder="Company (Optional)"
+              />
+            </div>
+            <div class="col-12">
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="Address *"
+              />
+            </div>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                id="inputApartment"
+                placeholder="Apartment, suite, etc (optional)"
+              />
+            </div>
+            <div class="col-md-4">
+              <!-- Provinces -->
+              <select id="inputProvince" class="form-select">
+                <option selected>Select a province</option>
+                <option>Eastern Cape</option>
+                <option>Free State</option>
+                <option>Gauteng</option>
+                <option>KwaZulu-Natal</option>
+                <option>Limpopo</option>
+                <option>Mpumalanga</option>
+                <option>Northern Cape</option>
+                <option>North West</option>
+                <option>Western Cape</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                id="inputCity"
+                placeholder="City"
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                id="inputZip"
+                placeholder="Zip"
+              />
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="gridCheck"
+                />
+                <label class="form-check-label" for="gridCheck">
+                  Check me out
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <!-- submit button -->
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer section -->
+    <footer id="footer">
+      <h2 id="footerName">Slowhale Store</h2>
+      <!-- We'll be using a the grid layout prioided by bootstrap -->
+      <div id="footerContainer" class="container">
+        <div class="row">
+          <!-- column 1 will have more links to different pages -->
+          <div class="col">
+            <ul class="footerList">
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../catalogue/index.html">Catalogue</a></li>
+              <li><a href="#navbar">Shipping</a></li>
+              <li><a href="../contact/index.html">Contact us</a></li>
+            </ul>
+          </div>
+          <!--  -->
+
+          <!-- column 2 will have usual footer information (FAQ, Shipping ect) -->
+          <div class="col">
+            <ul class="footerList">
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Shipping & Returns</a></li>
+              <li><a href="#">Payment methods</a></li>
+              <li><a href="#">Leave a review</a></li>
+            </ul>
+          </div>
+          <!--  -->
+
+          <!-- column 3 will have more links to different social media -->
+          <div class="col">
+            <ul class="footerList">
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Pinterest</a></li>
+            </ul>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- javscript -->
+    <!-- bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

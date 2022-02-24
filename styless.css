@@ -215,3 +215,73 @@ img {
 .footerList a:hover {
   text-decoration: underline;
 }
+
+/* end of the landing page styles */
+
+/* Shipping page styles */
+
+#shipping,
+#shipping nav {
+  animation: color 10s ease-in-out infinite;
+  background-color: aqua;
+}
+
+/* background color animation */
+@keyframes color {
+  0% {
+    background: #d8bfd8;
+  }
+  20% {
+    background: #ba55d3;
+  }
+  40% {
+    background: #9370db;
+  }
+  60% {
+    background: #dda0dd;
+  }
+  80% {
+    background: #ffc0cb;
+  }
+  100% {
+    background: #d8bfd8;
+  }
+}
+
+#shippingContainer {
+  width: 100%;
+  padding: 10px 100px 50px;
+}
+
+.shippingContainer {
+  width: 60%;
+  margin: auto;
+}
+
+/* dark class is just to the bold the word information under the company name */
+.dark {
+  font-weight: bold;
+}
+/* hover class is to hover on the the words after information under the company name */
+.hover:hover {
+  cursor: pointer;
+}
+
+/* END OF THE SHIPPING STYLES */
+
+/* CONTACT US STYLES */
+#contactContainer {
+  width: 100%;
+  padding: 10px 100px 50px;
+}
+
+.contactContainer {
+  width: 60%;
+  margin: auto;
+  padding: 50px;
+  border: 2px dashed #9470dba5;
+}
+
+.contactMessage {
+  text-align: center;
+}
