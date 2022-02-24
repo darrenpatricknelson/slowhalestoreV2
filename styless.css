@@ -1,0 +1,209 @@
+/* universal styles  */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #d8bfd8;
+}
+
+img {
+  object-fit: cover;
+}
+
+.imgBorder {
+  border: 2px solid #faf0e6;
+  border-radius: 1rem;
+  width: auto;
+  height: 300px;
+}
+
+/* navabar */
+#navbar {
+  padding: 20px 0;
+  text-align: center;
+}
+
+#storeName {
+  font-size: 3rem;
+}
+
+#navList {
+  list-style: none;
+  display: inline-flex;
+  text-align: center;
+}
+
+#navList li {
+  padding: 10px;
+}
+
+#navList a {
+  text-decoration: none;
+  color: #000;
+}
+
+#navList a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* landing banner */
+#banner {
+  position: relative;
+  width: 100%;
+}
+
+#bannerImg {
+  height: 800px;
+  width: 100%;
+  z-index: -1;
+  object-position: right 65%;
+}
+
+#bannerInfo {
+  position: absolute;
+  left: 200px;
+  top: 300px;
+}
+
+#bannerHeading,
+#bannerLink {
+  text-align: center;
+  line-height: 100px;
+  color: #000;
+}
+
+#bannerHeading {
+  font-size: 3rem;
+}
+
+#bannerLink a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  border: 2px solid #fff;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+#bannerLink a:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Best sellers section */
+#bestSellers {
+  margin: 50px;
+}
+
+#bestSellersHeading {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.borderSmall {
+  width: 25px;
+  margin: auto;
+  border-bottom: 5px solid #000;
+}
+
+.container {
+  margin: 30px auto;
+}
+
+.card {
+  width: 18rem;
+  height: 500px;
+  background-color: #d8bfd8;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+
+.card:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.564);
+  transform: scale(1.1);
+}
+
+/* testimonials section  */
+#testimonials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  height: 200px;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#carouselExampleControls {
+  width: 80%;
+}
+
+#testimonials:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.testText {
+  /* testText is the testimonial text */
+  width: 60%;
+  margin: 0 auto;
+}
+
+/* Meet the team section */
+#meetTheTeam {
+  width: 40%;
+  margin: 80px auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.meetTheTeamName {
+  text-align: center;
+  text-decoration: underline;
+  padding-top: 10px;
+}
+
+.meetTheTeamLinks {
+  color: #000;
+}
+
+.meetTheTeamLinks:hover {
+  color: grey;
+}
+
+/* Footer section */
+#footer {
+  width: 100%;
+  padding: 50px 100px;
+  background-color: #000;
+}
+
+#footerContainer {
+  width: 60%;
+  margin: auto;
+}
+
+#footerName {
+}
+
+.footerList {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.footerList li {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.footerList a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footerList a:hover {
+  text-decoration: underline;
+}

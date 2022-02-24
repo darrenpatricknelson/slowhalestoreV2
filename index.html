@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slowhale Store | Home</title>
+
+    <!-- bootstrap cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- my styles -->
+    <link rel="stylesheet" href="styless.css" />
+  </head>
+  <body>
+    <!-- The following is the navbar -->
+    <nav id="navbar">
+      <!-- store name -->
+      <h1 id="storeName">Slowhale Store</h1>
+
+      <!-- list acting as the navbar links -->
+      <ul id="navList">
+        <li><a href="">Home</a></li>
+        <li><a href="">Catalogue</a></li>
+        <li><a href="">About us</a></li>
+        <li><a href="">Shipping</a></li>
+      </ul>
+      <!--  -->
+    </nav>
+    <!-- End of navabr -->
+
+    <!-- Landing banner: The big image that catches the shoppers eye -->
+    <div id="banner">
+      <!-- Background image -->
+      <img
+        src="images/landingFeature3.jpg"
+        id="bannerImg"
+        alt="model walking into the beach"
+      />
+
+      <!-- More information -->
+      <div id="bannerInfo">
+        <!-- lets catch the shoppers attention -->
+        <h2 id="bannerHeading">Are you ready for the beach?</h2>
+        <!-- link to the catalogue page -->
+        <h4 id="bannerLink">
+          <a href="#">Shop our collection</a>
+        </h4>
+      </div>
+      <!--  -->
+    </div>
+    <!-- End of the landing banner -->
+
+    <!-- Best sellers section: has links to the catalogue -->
+    <section id="bestSellers">
+      <!-- best sellers header -->
+      <h3 id="bestSellersHeading">Best sellers</h3>
+
+      <!-- div to add a border decoration-->
+      <div class="borderSmall"></div>
+
+      <!-- We'll be using a cards and the grid layout prioided by bootstrap -->
+      <!-- Cards containing links -->
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <!-- card 1 -->
+            <div class="card">
+              <img
+                src="images/blackSet.jpg"
+                class="card-img-top imgBorder"
+                alt="Black bikini set"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Black Bikini Set</h5>
+                <p class="card-text">
+                  Our black bikini set is this months hot property!
+                </p>
+                <a href="#" class="btn btn-primary">Check out our sets</a>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+          <!--  -->
+          <div class="col">
+            <!-- card 2 -->
+            <div class="card">
+              <img
+                src="images/orangeTop.jpeg"
+                class="card-img-top imgBorder"
+                alt="Orange bikini top"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Orange Bikini Top</h5>
+                <p class="card-text">
+                  Stand out from the rest with this bright orange bikini top.
+                </p>
+                <a href="#" class="btn btn-primary"
+                  >Check our out bikini Tops</a
+                >
+              </div>
+            </div>
+            <!--  -->
+          </div>
+          <div class="col">
+            <!-- card 3 -->
+            <div class="card">
+              <img
+                src="images/blueBottom.jpeg"
+                class="card-img-top imgBorder"
+                alt="Blue bikini bottom"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Blue bikini bottom</h5>
+                <p class="card-text">
+                  This stunning blue bottoms will have everyones heads turning
+                </p>
+                <a href="#" class="btn btn-primary">Check out our bottoms</a>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+          <div class="col">
+            <!-- card 4 -->
+            <div class="card">
+              <img
+                src="images/necklace.JPG"
+                class="card-img-top imgBorder"
+                alt="A necklace closeup"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Beach necklace</h5>
+                <p class="card-text">
+                  Cant forget the jewelry. This months hot property is our
+                  seashell necklace.
+                </p>
+                <a href="#" class="btn btn-primary"
+                  >Check out our accessories</a
+                >
+              </div>
+            </div>
+            <!--  -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End of the best sellers section -->
+
+    <!-- Testimonial section: Will have testimonials of previous buyers -->
+    <!-- best sellers header -->
+    <h3 id="bestSellersHeading">Testimonials</h3>
+
+    <!-- div to add a border decoration-->
+    <div class="borderSmall"></div>
+    <section id="testimonials">
+      <!-- We'll be using a carousel privided by bootstrap -->
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <!-- the cards that house the testimonials -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <!-- some filler text -->
+            <h3 class="testText">
+              'I bought the black set for my girlfriend and I've honestly been
+              envied by other men at the beach. Spoil your queens guys!'
+            </h3>
+            <p class="testText">- John Doe</p>
+          </div>
+          <div class="carousel-item">
+            <!-- some filler text -->
+            <h3 class="testText">
+              'I bought the orange bikini set, best purchase I've made this
+              year!'
+            </h3>
+            <p class="testText">- Jane Doe</p>
+          </div>
+          <div class="carousel-item">
+            <!-- some filler text -->
+            <h3 class="testText">'Hi. I'm Bob. another satisfied customer!</h3>
+            <p class="testText">- Bob</p>
+          </div>
+        </div>
+        <!-- thes are the left andd right buttons -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    <!-- End of the testimonial section -->
+
+    <!-- Meet the team section -->
+    <!-- best sellers header -->
+    <h3 id="bestSellersHeading">Meet the team</h3>
+
+    <!-- div to add a border decoration-->
+    <div class="borderSmall"></div>
+    <section id="meetTheTeam">
+      <!-- We'll be using a cards and the grid layout prioided by bootstrap -->
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <!-- team member 1 -->
+            <div class="card">
+              <h4 class="meetTheTeamName">Zoe Amato</h4>
+              <img src="images/thing1.png" class="card-img-top" alt="thing 1" />
+              <div class="card-body">
+                <p class="card-text">
+                  Co-founder #1. <br />
+                  Find out more on the
+                  <a href="#" class="meetTheTeamLinks">About us page</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!--  -->
+          <div class="col">
+            <!-- team member 2 -->
+            <div class="card">
+              <h4 class="meetTheTeamName">Leah Gluckman</h4>
+              <img src="images/thing2.png" class="card-img-top" alt="thing 2" />
+              <div class="card-body">
+                <p class="card-text">
+                  Co-founder #2. <br />
+                  Find out more on the
+                  <a href="#" class="meetTheTeamLinks">About us page</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </section>
+    <!-- End of the meet the team section -->
+
+    <!-- footer section -->
+    <footer id="footer">
+      <h2 id="footerName">Slowhale Store</h2>
+      <!-- We'll be using a the grid layout prioided by bootstrap -->
+      <div id="footerContainer" class="container">
+        <div class="row">
+          <!-- column 1 will have more links to different pages -->
+          <div class="col">
+            <ul class="footerList">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Catalogue</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Shipping</a></li>
+            </ul>
+          </div>
+          <!--  -->
+
+          <!-- column 2 will have usual footer information (FAQ, Shipping ect) -->
+          <div class="col">
+            <ul class="footerList">
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Shipping & Returns</a></li>
+              <li><a href="#">Payment methods</a></li>
+              <li><a href="#">Leave a review</a></li>
+            </ul>
+          </div>
+          <!--  -->
+
+          <!-- column 3 will have more links to different social media -->
+          <div class="col">
+            <ul class="footerList">
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Pinterest</a></li>
+            </ul>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- javscript -->
+    <!-- bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
