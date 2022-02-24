@@ -1,4 +1,5 @@
-/* universal styles  */
+/* UNIVERSAL STYLES */
+
 * {
   padding: 0;
   margin: 0;
@@ -20,6 +21,12 @@ img {
   width: auto;
   height: 300px;
 }
+
+/* END OF UNIVERSAL STYLES */
+/*  */
+/*  */
+/*  */
+/* LANDING PAGE STYLES */
 
 /* navabar */
 #navbar {
@@ -216,9 +223,11 @@ img {
   text-decoration: underline;
 }
 
-/* end of the landing page styles */
-
-/* Shipping page styles */
+/* END OF LANDING PAGE STYLES */
+/*  */
+/*  */
+/*  */
+/* SHIPPING PAGE STYLES */
 
 #shipping,
 #shipping nav {
@@ -268,7 +277,9 @@ img {
 }
 
 /* END OF THE SHIPPING STYLES */
-
+/*  */
+/*  */
+/*  */
 /* CONTACT US STYLES */
 #contactContainer {
   width: 100%;
@@ -285,3 +296,5 @@ img {
 .contactMessage {
   text-align: center;
 }
+
+/* END OF THE CONTACT US STYLES */
