@@ -368,7 +368,6 @@ button {
 #shipping,
 #shipping nav {
   animation: color 10s ease-in-out infinite;
-  background-color: aqua;
 }
 
 /* background color animation */
