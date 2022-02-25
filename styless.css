@@ -176,6 +176,8 @@ img {
   text-align: center;
   text-decoration: underline;
   padding-top: 10px;
+  font-size: 2rem;
+  font-family: 'Lobster two', cursive;
 }
 
 .meetTheTeamLinks {
@@ -184,6 +186,21 @@ img {
 
 .meetTheTeamLinks:hover {
   color: grey;
+}
+
+.meetTheTeamCard {
+  height: auto;
+}
+
+.meetTheTeamImg {
+  height: 300px;
+}
+
+.jobTitle {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-align: center;
+  font-family: 'Lobster two', cursive;
 }
 
 /* Footer section */
