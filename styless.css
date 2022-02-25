@@ -27,6 +27,11 @@ button {
   height: 300px;
 }
 
+.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 /* END OF UNIVERSAL STYLES */
 /*  */
 /*  */
