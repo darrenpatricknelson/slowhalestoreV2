@@ -147,16 +147,13 @@ button {
 
 /* testimonials section  */
 #testimonials {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
   height: 200px;
   padding: 50px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
 #carouselExampleControls {
+  margin: 20px auto;
   width: 80%;
 }
 
@@ -259,6 +256,11 @@ button {
   text-decoration: underline;
 }
 
+.footerDeclaration {
+  color: #fff;
+  text-align: center;
+}
+
 /* END OF LANDING PAGE STYLES */
 /*  */
 /*  */
@@ -268,6 +270,7 @@ button {
   width: 90%;
   margin: auto;
 }
+
 #catalogueNav {
   width: 30%;
   float: left;
@@ -436,3 +439,150 @@ button {
 }
 
 /* END OF THE CONTACT US STYLES */
+/*  */
+/*  */
+/*  */
+/* MEDIA QUERIES FOR MOBILE RESPONSIVENESS */
+@media (max-width: 500px) {
+  /* UNIVERSAL */
+  .card {
+    width: auto;
+    margin: 20px 0;
+  }
+  /* LANDING PAGE */
+  /* NAVABR */
+  #navList {
+    padding: 0;
+  }
+
+  #storeName {
+    font-size: 3.8rem;
+    text-decoration: underline;
+  }
+  #navList li {
+    padding: 10px 5px;
+  }
+  /*  */
+  /* LANDING BANNER */
+  #bannerInfo {
+    left: 0;
+    top: 20px;
+  }
+
+  #bannerHeading {
+    font-size: 3rem;
+  }
+
+  #bannerHeading,
+  #bannerLink {
+    line-height: 80px;
+  }
+  /*  */
+  /* TESTIMONIALS SECTION */
+  #testimonials {
+    padding: 10px;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  #carouselExampleControls {
+    margin: 5px auto;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+  }
+  .testText {
+    width: 70%;
+    text-align: center;
+    /* font-size: 0.8rem; */
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    height: 1005;
+  }
+  /*  */
+  /* FOOTER SECTION */
+  #footer {
+    padding: 50px 20px;
+  }
+
+  #footerName {
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+  }
+  /* END OF THE LANDING PAGE */
+  /*  */
+  /*  */
+  /*  */
+  /* CATALOGUE PAGE */
+  #catalogueContainer {
+    width: 95%;
+  }
+
+  #catalogueContainer .card {
+    height: auto;
+  }
+  #catalogueNav,
+  #catalogueIcons {
+    width: 100%;
+    float: none;
+  }
+
+  #catalogueIcons {
+    margin: 0 auto;
+  }
+
+  .accordion {
+    margin-top: 20px;
+  }
+  /* size chart */
+
+  .headers {
+    width: 90%;
+    margin: auto 5px;
+  }
+
+  #topCollection,
+  #bottomCollection {
+    font-size: 3rem;
+  }
+
+  /* tables */
+  .fullWidth {
+    display: none;
+  }
+  .halfWidth {
+    display: contents;
+  }
+  /* END OF THE CATALOGUE PAGE */
+  /*  */
+  /*  */
+  /*  */
+  /* SHIPPING PAGE */
+  #shippingContainer {
+    padding: 20px 10px;
+  }
+
+  .shippingContainer {
+    width: 80%;
+  }
+  /* END OF THE SHIPPING PAGE */
+  /*  */
+  /*  */
+  /*  */
+  /* CONTACT US PAGE */
+  #contactContainer {
+    padding: 20px 10px;
+  }
+
+  .contactContainer {
+    width: 90%;
+    padding: 10px;
+  }
+  /* END OF THE CONTACT US PAGE */
+}
