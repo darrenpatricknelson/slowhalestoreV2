@@ -67,6 +67,8 @@
       <!--  -->
     </div>
     <!-- End of the landing banner -->
+
+    <!-- best sellers section -->
     <section id="bestSellers">
       <!-- best sellers header -->
       <h3 class="sectionHeadings">Best sellers</h3>
@@ -168,7 +170,7 @@
     <!-- End of the best sellers section -->
 
     <!-- Testimonial section: Will have testimonials of previous buyers -->
-    <!-- best sellers header -->
+    <!-- Testimonials header -->
     <h3 class="sectionHeadings">Testimonials</h3>
 
     <!-- div to add a border decoration-->
@@ -228,21 +230,25 @@
     <!-- End of the testimonial section -->
 
     <!-- Meet the team section -->
-    <!-- best sellers header -->
+    <!-- Meet the team header -->
     <h3 class="sectionHeadings">Meet the team</h3>
-
     <!-- div to add a border decoration-->
     <div class="borderSmall"></div>
+    <!--  -->
     <section id="meetTheTeam">
       <!-- We'll be using a cards and the grid layout prioided by bootstrap -->
 
       <div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col-md-6 col-sm-12">
             <!-- team member 1 -->
-            <div class="card">
+            <div id="teamMember1" class="card">
               <h4 class="meetTheTeamName">Zoe Amato</h4>
-              <img src="images/thing1.png" class="card-img-top" alt="thing 1" />
+              <img
+                src="images/thing1.png"
+                class="card-img-top landingPageMeetTheTeam"
+                alt="thing 1"
+              />
               <div class="card-body">
                 <p class="card-text">
                   Co-founder #1. <br />
@@ -256,11 +262,15 @@
           </div>
 
           <!--  -->
-          <div class="col">
+          <div class="col-md-6 col-sm-12">
             <!-- team member 2 -->
-            <div class="card">
+            <div id="teamMember2" class="card">
               <h4 class="meetTheTeamName">Leah Gluckman</h4>
-              <img src="images/thing2.png" class="card-img-top" alt="thing 2" />
+              <img
+                src="images/thing2.png"
+                class="card-img-top landingPageMeetTheTeam"
+                alt="thing 2"
+              />
               <div class="card-body">
                 <p class="card-text">
                   Co-founder #2. <br />
@@ -299,9 +309,13 @@
           <div class="col">
             <ul class="footerList">
               <li><a href="#">FAQ</a></li>
-              <li><a href="#">Shipping & Returns</a></li>
+              <li>
+                <a href="https://www.dhl.com/za-en/home.html" target="blank"
+                  >Shipping & Returns</a
+                >
+              </li>
               <li><a href="#">Payment methods</a></li>
-              <li><a href="#">Leave a review</a></li>
+              <li><a href="pages/contact/index.html">Leave a review</a></li>
             </ul>
           </div>
           <!--  -->
@@ -309,9 +323,17 @@
           <!-- column 3 will have more links to different social media -->
           <div class="col">
             <ul class="footerList">
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">Pinterest</a></li>
+              <li>
+                <a href="https://www.facebook.com/" target="blank">Facebook</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/?hl=en" target="blank"
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <a href="https://za.pinterest.com/" target="blank">Pinterest</a>
+              </li>
             </ul>
           </div>
           <!--  -->

@@ -166,10 +166,14 @@ img {
 
 /* Meet the team section */
 #meetTheTeam {
-  width: 40%;
-  margin: 80px auto;
+  width: 90%;
+  margin: 20px auto 40px;
   display: flex;
   flex-direction: row;
+}
+#teamMember1,
+#teamMember2 {
+  margin: auto;
 }
 
 .meetTheTeamName {
@@ -194,6 +198,10 @@ img {
 
 .meetTheTeamImg {
   height: 300px;
+}
+
+.landingPageMeetTheTeam {
+  filter: grayscale(100%);
 }
 
 .jobTitle {
