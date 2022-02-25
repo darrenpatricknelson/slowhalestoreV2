@@ -13,6 +13,11 @@ body {
 
 img {
   object-fit: cover;
+  padding: 2px;
+}
+
+button {
+  padding: 2px;
 }
 
 .imgBorder {
@@ -70,6 +75,7 @@ img {
   width: 100%;
   z-index: -1;
   object-position: right 65%;
+  padding: 0;
 }
 
 #bannerInfo {
@@ -224,9 +230,14 @@ img {
 }
 
 #footerName {
-  font-size: 3rem;
+  display: inline-block;
+  font-size: 4rem;
   font-family: 'Lobster', cursive;
   text-decoration: underline;
+  padding: 5px;
+  background: linear-gradient(to left, PaleVioletRed, Plum);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .footerList {
@@ -318,8 +329,8 @@ img {
 #topCollection {
   background: linear-gradient(to left, orange, orangered);
   -webkit-background-clip: text;
-  font-size: 6rem;
   -webkit-text-fill-color: transparent;
+  font-size: 6rem;
 }
 
 #section1 .table {
@@ -408,6 +419,11 @@ img {
   padding: 10px 100px 50px;
 }
 
+.backgroundColor {
+  background-color: #fff;
+  padding: 5px;
+  margin: 0 0 10px;
+}
 .contactContainer {
   width: 60%;
   margin: auto;
