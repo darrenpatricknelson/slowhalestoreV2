@@ -28,7 +28,7 @@
       href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:ital@1&family=Ubuntu&display=swap"
       rel="stylesheet"
     />
-    
+
     <!-- favicon -->
     <link
       rel="apple-touch-icon"
@@ -60,12 +60,11 @@
         <li><a href="../../index.html">Home</a></li>
         <li><a href="../catalogue/index.html">Catalogue</a></li>
         <li><a href="../shipping/index.html">Shipping</a></li>
-        <li class="active"><a href="#navbar">Get in touch!</a></li>
+        <li id="active"><a href="#navbar">Get in touch!</a></li>
       </ul>
       <!--  -->
     </nav>
     <!-- End of navabr -->
-
 
     <!-- Meet the team section -->
     <!-- meet the team header -->
@@ -85,13 +84,22 @@
             <!-- team member 1 -->
             <div class="card meetTheTeamCard">
               <h3 class="meetTheTeamName">Zoe Amato</h3>
-              <img src="../../images/thing1.png" class="card-img-top meetTheTeamImg" alt="thing 1" />
+              <img
+                src="../../images/thing1.png"
+                class="card-img-top meetTheTeamImg"
+                alt="thing 1"
+              />
               <div class="card-body">
-                <p class="card-text">
-                  <h4 class="jobTitle"> Co-founder #1. </h4> 
+                <div class="card-text">
+                  <h4 class="jobTitle">Co-founder #1.</h4>
                   <br />
-                  Some more indepth information about Zoe Amato. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam fugit facere, maiores consequatur doloribus magnam ducimus sunt modi aut facilis dolore vel corporis dignissimos totam libero! Architecto aspernatur dolorum ut!
-                </p>
+
+                  Some more indepth information about Zoe Amato. Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Quam fugit
+                  facere, maiores consequatur doloribus magnam ducimus sunt modi
+                  aut facilis dolore vel corporis dignissimos totam libero!
+                  Architecto aspernatur dolorum ut!
+                </div>
               </div>
             </div>
           </div>
@@ -101,13 +109,21 @@
             <!-- team member 2 -->
             <div class="card meetTheTeamCard">
               <h3 class="meetTheTeamName">Leah Gluckman</h3>
-              <img src="../../images/thing2.png" class="card-img-top meetTheTeamImg" alt="thing 2" />
+              <img
+                src="../../images/thing2.png"
+                class="card-img-top meetTheTeamImg"
+                alt="thing 2"
+              />
               <div class="card-body">
-                <p class="card-text">
-                  <h4 class="jobTitle"> Co-founder #2. </h4> 
+                <div class="card-text">
+                  <h4 class="jobTitle">Co-founder #2.</h4>
                   <br />
-                  Some more information about Leah GLuckman. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum delectus tempore maiores ea quas, laudantium sint facilis ad magnam autem quae laboriosam in ipsa placeat dolores eligendi illum, iste officia.
-                </p>
+                  Some more information about Leah GLuckman. Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Cum delectus tempore
+                  maiores ea quas, laudantium sint facilis ad magnam autem quae
+                  laboriosam in ipsa placeat dolores eligendi illum, iste
+                  officia.
+                </div>
               </div>
             </div>
           </div>
@@ -117,7 +133,6 @@
     </section>
     <!-- End of the meet the team section -->
 
-    
     <!-- Leave a review -->
     <h3 class="sectionHeadings">Get in touch with us!</h3>
 
@@ -127,51 +142,54 @@
     <!-- Contact form -->
     <div id="contactContainer">
       <div class="contactContainer">
-          <!-- customer information -->
-<div class="backgroundColor">
-            <h3 class="contactMessage">Hey, We'd love to hear from you!</h3>
-            <p class="contactMessage">Do you have anything to say? <br>
-            Want to leave a review or just say hi? <br>
-        Leave us a message below and we will get back to you! <br>
-    We love and appreicate all our clients and any feedback would be greatly appreicated.</p>
-</div>
-          <form class="row g-3">
-            <div class="col-md-6">
-              <input
-                type="text"
-                class="form-control"
-                id="inputName"
-                placeholder="First Name *"
-              />
-            </div>
-            <div class="col-md-6">
-              <input
-                type="text"
-                class="form-control"
-                id="inputSurname"
-                placeholder="Last Name *"
-              />
-            </div>
-            <div class="col-12">
-              <input
-                type="email"
-                class="form-control"
-                id="inputCompany"
-                placeholder="Email *"
-              />
-            </div>
-            <div class="col-12">
-              <textarea name="comment" 
-                class="form-control" 
-                form="usrform"
-                placeholder="Enter your message here..."></textarea>
-            </div>
-            <div class="col-12">
-              <!-- submit button -->
-              <button type="submit" class="btn btn-success">Submit</button>
-            </div>
-          </form>
+        <!-- customer information -->
+        <div class="backgroundColor">
+          <h3 class="contactMessage">Hey, We'd love to hear from you!</h3>
+          <p class="contactMessage">
+            Do you have anything to say? <br />
+            Want to leave a review or just say hi? <br />
+            Leave us a message below and we will get back to you! <br />
+            We love and appreicate all our clients and any feedback would be
+            greatly appreicated.
+          </p>
         </div>
+        <form class="row g-3">
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="inputName"
+              placeholder="First Name *"
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="inputSurname"
+              placeholder="Last Name *"
+            />
+          </div>
+          <div class="col-12">
+            <input
+              type="email"
+              class="form-control"
+              id="inputCompany"
+              placeholder="Email *"
+            />
+          </div>
+          <div class="col-12">
+            <textarea
+              name="comment"
+              class="form-control"
+              placeholder="Enter your message here..."
+            ></textarea>
+          </div>
+          <div class="col-12">
+            <!-- submit button -->
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
 
@@ -196,7 +214,11 @@
           <div class="col">
             <ul class="footerList">
               <li><a href="#">FAQ</a></li>
-              <li><a href="https://www.dhl.com/za-en/home.html" target="blank">Shipping & Returns</a></li>
+              <li>
+                <a href="https://www.dhl.com/za-en/home.html" target="blank"
+                  >Shipping & Returns</a
+                >
+              </li>
               <li><a href="#">Payment methods</a></li>
             </ul>
           </div>
@@ -205,9 +227,19 @@
           <!-- column 3 will have more links to different social media -->
           <div class="col">
             <ul class="footerList">
-              <li><a href="https://www.facebook.com/" target="blank">Facebook</a></li>
-              <li><a href="https://www.instagram.com/slowhalestore/" target="blank">Instagram</a></li>
-              <li><a href="https://za.pinterest.com/" target="blank">Pinterest</a></li>
+              <li>
+                <a href="https://www.facebook.com/" target="blank">Facebook</a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/slowhalestore/"
+                  target="blank"
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <a href="https://za.pinterest.com/" target="blank">Pinterest</a>
+              </li>
             </ul>
           </div>
           <!--  -->

@@ -27,7 +27,7 @@ button {
   height: 300px;
 }
 
-.active {
+#active {
   font-weight: bold;
   text-decoration: underline;
 }
@@ -506,9 +506,15 @@ button {
 
   .carousel-control-prev,
   .carousel-control-next {
-    height: 1005;
+    height: 100%;
   }
   /*  */
+
+  /* MEET THE TEAM SECTION */
+  .col-md-6,
+  .col-sm-12 {
+    margin-bottom: 50px;
+  }
   /* FOOTER SECTION */
   #footer {
     padding: 50px 20px;
