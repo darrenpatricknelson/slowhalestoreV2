@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slowhale Store | Shipping</title>
+    <title>Slowhale Store | Catalogue</title>
 
     <!-- bootstrap cdn -->
     <link
@@ -49,7 +49,11 @@
     />
     <link rel="manifest" href="/site.webmanifest" />
   </head>
-  <body>
+  <body onload="loaded.buildCatalogue()">
+    <!-- aitem overlay  -->
+    <div id="itemOverlay">
+      <h3 id="itemHeading" class="sectionHeadings"></h3>
+    </div>
     <!-- The following is the navbar -->
     <nav id="navbar">
       <!-- store name -->
@@ -259,226 +263,16 @@
 
       <!-- Actual store items -->
       <div id="catalogueIcons" class="container">
-        <div class="row">
-          <!-- row 1 -->
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card catalogueCrd">
-              <img
-                src="../../images/blackSet.jpg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Black Bikini Set"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Black Set</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL <br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/greenSet1.jpg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Emarald Set"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Emarald Set</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL <br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/orangeSetSlim.jpg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Orange set Slim"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Fire Orange Set</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL <br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/orangeTopCombo.jpeg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Orange Top Combo"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Orange Top Set</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL <br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <!--  -->
-
-          <!-- row 2 -->
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/orangeTop.jpeg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Orange Top"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Orange Top</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL <br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/blueBottom.jpeg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Blue Bikini Bottom"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Sea Blue Bottoms</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL <br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/greenBottom.jpeg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Emarald Bikini Bottom"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Emarald Bottoms</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL <br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/reversableSet.jpeg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Reversable Bikini Set"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Reversable Set</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL<br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <!--  -->
-
-          <!-- row 3 -->
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/emaraldOnepiece.jpeg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Emarald One Piece"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Emarald Luna</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL <br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/lightBrownSet.jpeg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Brown Bikini Set"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Brown Set</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL <br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/purpleSet.jpg"
-                class="card-img-top img-fluid imgBorder"
-                alt="Purple Bikini Set"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Purple Set</h5>
-                <p class="card-text">
-                  Available sizes: XS, S, M, L, XL, XXL <br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card">
-              <img
-                src="../../images/necklace.JPG"
-                class="card-img-top img-fluid imgBorder"
-                alt="Beach Necklace"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Beach Necklace</h5>
-                <p class="card-text">
-                  One size fits all<br />
-                  Price: R 00.00
-                </p>
-                <a href="#" class="btn btn-outline-success">Add to cart</a>
-              </div>
-            </div>
-          </div>
-          <!-- end of row -->
+        <div id="catalogueRow" class="row">
+          <!-- all the catalogue items will be added using javascript  -->
         </div>
         <!--  -->
       </div>
     </div>
-    <!--  -->
 
     <!--  -->
+
+    <!-- This is just so that all the elements below the above content is cleared. Since the above content is floated left and right -->
     <div class="filler"></div>
     <br />
     <!--  -->
@@ -795,5 +589,8 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+
+    <!-- my javascript -->
+    <script type="text/javascript" src="../../main.js"></script>
   </body>
 </html>

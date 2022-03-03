@@ -364,6 +364,11 @@ button {
   display: none;
 }
 
+/* item overlay */
+#itemOverlay {
+  display: none;
+}
+
 /* END OF CATALOGUE PAGE STYLES */
 /*  */
 /*  */
