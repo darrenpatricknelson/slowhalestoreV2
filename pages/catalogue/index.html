@@ -14,6 +14,12 @@
       crossorigin="anonymous"
     />
 
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/66abdbb5c7.js"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- my styles -->
     <link rel="stylesheet" href="../../styless.css" />
 
@@ -49,9 +55,10 @@
     />
     <link rel="manifest" href="/site.webmanifest" />
   </head>
-  <body onload="loaded.buildCatalogue()">
+  <!--  -->
+  <body onload="buildCatalogue()">
     <!-- aitem overlay  -->
-    <div id="itemOverlay">
+    <div id="itemOverlay" class="hidden">
       <h3 id="itemHeading" class="sectionHeadings"></h3>
     </div>
     <!-- The following is the navbar -->
@@ -63,7 +70,7 @@
       <ul id="navList">
         <li><a href="../../index.html">Home</a></li>
         <li id="active"><a href="#navbar">Catalogue</a></li>
-        <li><a href="../shipping/index.html">Shipping</a></li>
+        <li><a href="../shipping/index.html">Check out</a></li>
         <li><a href="../contact/index.html">Get in touch!</a></li>
       </ul>
       <!--  -->
@@ -71,6 +78,23 @@
     <!-- End of navabr -->
     <!-- best sellers header -->
     <h3 class="sectionHeadings">Catalogoe</h3>
+    <div class="cartAmountContainer">
+      <button
+        id="cartButton"
+        type="button"
+        class="btn btn-success position-relative cart"
+        onclick="displayCartItems()"
+      >
+        Your Cart <i class="fa-solid fa-cart-shopping"></i>
+        <span
+          id="cartAmount"
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        >
+          0
+          <span class="visually-hidden">Cart</span>
+        </span>
+      </button>
+    </div>
 
     <!-- div to add a border decoration-->
     <div class="borderSmall"></div>
@@ -84,176 +108,70 @@
 
         <!-- div to add a border decoration-->
         <div class="borderSmall"></div>
-        <!-- Accordion provided by bootstrap -->
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                CATEGORY
-              </button>
-            </h2>
-            <div
-              id="collapseOne"
-              class="accordion-collapse collapse show"
-              aria-labelledby="headingOne"
-            >
-              <div class="accordion-body">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="allItems"
-                  />
-                  <label class="form-check-label" for="allItems">
-                    All items
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="sets"
-                    checked
-                  />
-                  <label class="form-check-label" for="sets">
-                    Bikini Sets
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="tops"
-                    checked
-                  />
-                  <label class="form-check-label" for="tops">
-                    Bikini Tops
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="bottoms"
-                    checked
-                  />
-                  <label class="form-check-label" for="bottoms">
-                    Bikini Bottoms
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="accessories"
-                    checked
-                  />
-                  <label class="form-check-label" for="accessories">
-                    Accessories
-                  </label>
-                </div>
+
+        <!-- Accordion done in jQuery -->
+        <div id="container">
+          <div class="accordion1">
+            <!-- hover heading -->
+            <h3 class="accordionHeading1">Catergory</h3>
+            <!-- content -->
+            <div class="container1">
+              <div class="content">
+                <!-- filler content -->
+                <ul id="filterList">
+                  <li>
+                    <button class="showItemButton" id="showAll">All</button>
+                  </li>
+                  <li>
+                    <button class="showItemButton" id="showSets">
+                      Bikini Sets
+                    </button>
+                  </li>
+                  <li>
+                    <button class="showItemButton" id="showTops">
+                      Bikini Tops
+                    </button>
+                  </li>
+                  <li>
+                    <button class="showItemButton" id="showBottoms">
+                      Bikini Bottoms
+                    </button>
+                  </li>
+                  <li>
+                    <button class="showItemButton" id="showAcc">
+                      Accessories
+                    </button>
+                  </li>
+                  <li>
+                    <button class="showItemButton" id="showOneP">
+                      One piece
+                    </button>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo"
-                aria-expanded="false"
-                aria-controls="collapseTwo"
-              >
-                COLOR
-              </button>
-            </h2>
-            <div
-              id="collapseTwo"
-              class="accordion-collapse collapse"
-              aria-labelledby="headingTwo"
-            >
-              <div class="accordion-body">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="flexRadioDefault1"
-                  />
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Color Option #1
-                  </label>
+          <div class="accordion2">
+            <!-- hover heading -->
+            <h3 class="accordionHeading2">Hover over to reveal my contents</h3>
+            <div class="container2">
+              <!-- content -->
+              <div class="content">
+                <!-- filler content -->
+                <div>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Facere quidem vero facilis omnis maiores non nesciunt alias
+                  fugit inventore tempore.
                 </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="flexRadioDefault2"
-                    checked
-                  />
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    Color Option #2
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseThree"
-                aria-expanded="false"
-                aria-controls="collapseThree"
-              >
-                SIZE
-              </button>
-            </h2>
-            <div
-              id="collapseThree"
-              class="accordion-collapse collapse"
-              aria-labelledby="headingThree"
-            >
-              <div class="accordion-body">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="flexRadioDefault3"
-                  />
-                  <label class="form-check-label" for="flexRadioDefault3">
-                    Size Option #1
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="flexRadioDefault4"
-                    checked
-                  />
-                  <label class="form-check-label" for="flexRadioDefault4">
-                    Size Option #1
-                  </label>
-                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
+                  libero sit dignissimos asperiores magni. Earum, ipsum facere.
+                  Aliquid, suscipit dolorum sed eveniet corrupti asperiores
+                  omnis obcaecati dolore tempore doloremque, voluptatem
+                  laudantium illum consequatur sequi qui cum ratione iusto
+                  molestias! Labore, nostrum expedita? Mollitia unde
+                  exercitationem dolorem assumenda, tenetur tempore totam.
+                </p>
               </div>
             </div>
           </div>
@@ -273,7 +191,7 @@
     <!--  -->
 
     <!-- This is just so that all the elements below the above content is cleared. Since the above content is floated left and right -->
-    <div class="filler"></div>
+    <div id="filler"></div>
     <br />
     <!--  -->
     <!-- div to add a border decoration-->
@@ -583,6 +501,10 @@
     </footer>
 
     <!-- javscript -->
+    <!-- jQuery -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <!-- bootstrap js -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

@@ -48,8 +48,14 @@
       href="../../images/favicon_io/favicon-16x16.png"
     />
     <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/66abdbb5c7.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body id="shipping">
+  <body id="checkOut" onload="checkOutPageOnload()">
     <!-- The following is the navbar -->
     <nav id="navbar">
       <!-- store name -->
@@ -59,7 +65,7 @@
       <ul id="navList">
         <li><a href="../../index.html">Home</a></li>
         <li><a href="../catalogue/index.html">Catalogue</a></li>
-        <li id="active"><a href="#navbar">Shipping</a></li>
+        <li id="active"><a href="#navbar">Check out</a></li>
         <li><a href="../contact/index.html">Get in touch</a></li>
       </ul>
       <!--  -->
@@ -67,131 +73,139 @@
     <!-- End of navabr -->
 
     <!-- Shipping form -->
-    <div id="shippingContainer">
-      <div class="shippingContainer">
-        <div class="shippingForm">
-          <!-- Name of shiping comany -->
-          <h2>RandomShipping Company</h2>
-          <!-- directory -->
-          <p>
-            <span class="dark">information</span> >
-            <span class="hover">Shopping</span> >
-            <span class="hover">Payment</span>
-          </p>
-          <!-- customer information -->
-          <form class="row g-3">
+    <div id="checkOutContainer">
+      <div id="checkOutFormContainer" class="checkOutFormContainer">
+        <div id="checkOutForm" class="checkOutForm">
+          <!-- delivery -->
+          <h3>Delivery details</h3>
+          <div class="deliveryOptions">
+            <p>Choose a delivery method</p>
+            <button
+              type="button"
+              name="deliver"
+              id="deliverCheck"
+              class="deliveryCheck"
+            >
+              <i class="fa-solid fa-truck"></i> Some text here
+            </button>
             <br />
-            <h2>Customer information</h2>
+            <button
+              type="radio"
+              name="deliver"
+              id="pickUp"
+              class="deliveryCheck"
+            >
+              <i class="fa-solid fa-bag-shopping"></i> Some text here
+            </button>
+          </div>
+          <br />
+          <div class="deliveryAddress">
+            <p>Shipping address</p>
+            <input
+              type="text"
+              class="deliveryAddressInput"
+              placeholder="Enter your shipping address"
+            />
+          </div>
+          <br />
+
+          <!-- payment -->
+          <h3>Payment information</h3>
+          <div class="paymentInformation">
+            <button id="mastercard">
+              <img
+                src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+              />
+            </button>
+            <button id="paypal">
+              <img src="https://img.icons8.com/color/48/000000/paypal.png" />
+            </button>
+          </div>
+          <br />
+          <div class="cardPayment">
+            <p>Name on card</p>
+            <input
+              type="text"
+              class="deliveryAddressInput"
+              placeholder="Enter the name"
+            />
             <br />
-            <div class="col-md-6">
-              <input
-                type="email"
-                class="form-control"
-                id="inputEmail"
-                placeholder="Enter a valid Email"
-              />
-            </div>
-            <div class="col-md-6">
-              <input
-                type="tel"
-                class="form-control"
-                id="inputPhoneNumber"
-                placeholder="Phone number"
-              />
-            </div>
-            <!--  -->
             <br />
-            <!-- Shipping information -->
-            <h2>Shipping address</h2>
+            <p>Card number</p>
+            <input
+              type="text"
+              class="deliveryAddressInput"
+              placeholder="Enter the card number"
+            />
             <br />
-            <div class="col-md-6">
-              <input
-                type="text"
-                class="form-control"
-                id="inputName"
-                placeholder="First Name *"
-              />
-            </div>
-            <div class="col-md-6">
-              <input
-                type="text"
-                class="form-control"
-                id="inputSurname"
-                placeholder="Last Name *"
-              />
-            </div>
-            <div class="col-12">
-              <input
-                type="text"
-                class="form-control"
-                id="inputCompany"
-                placeholder="Company (Optional)"
-              />
-            </div>
-            <div class="col-12">
-              <input
-                type="text"
-                class="form-control"
-                id="inputAddress"
-                placeholder="Address *"
-              />
-            </div>
-            <div class="col-md-12">
-              <input
-                type="text"
-                class="form-control"
-                id="inputApartment"
-                placeholder="Apartment, suite, etc (optional)"
-              />
-            </div>
-            <div class="col-md-4">
-              <!-- Provinces -->
-              <select id="inputProvince" class="form-select">
-                <option selected>Select a province</option>
-                <option>Eastern Cape</option>
-                <option>Free State</option>
-                <option>Gauteng</option>
-                <option>KwaZulu-Natal</option>
-                <option>Limpopo</option>
-                <option>Mpumalanga</option>
-                <option>Northern Cape</option>
-                <option>North West</option>
-                <option>Western Cape</option>
-              </select>
-            </div>
-            <div class="col-md-4">
-              <input
-                type="text"
-                class="form-control"
-                id="inputCity"
-                placeholder="City"
-              />
-            </div>
-            <div class="col-md-4">
-              <input
-                type="text"
-                class="form-control"
-                id="inputZip"
-                placeholder="Zip"
-              />
-            </div>
-            <div class="col-12">
-              <div class="form-check">
+            <br />
+            <div class="expirationAndCVV">
+              <div class="expiration">
+                <p>Expiration</p>
                 <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
+                  type="text"
+                  class="deliveryAddressInput"
+                  placeholder="MM/YY"
                 />
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
+              </div>
+              <div class="CVV">
+                <p>CVV</p>
+                <input
+                  type="text"
+                  class="deliveryAddressInput"
+                  placeholder="CVV"
+                />
               </div>
             </div>
-            <div class="col-12">
-              <!-- submit button -->
-              <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </div>
+
+        <!-- This is the order summary field, this will display on the right of the check out form -->
+        <div id="checkOutSummary" class="checkOutSummary">
+          <h3>Order Summary</h3>
+          <div id="orderSummary" class="informationContainer"></div>
+          <div class="informationContainer">
+            <div class="deliveryAndDiscount">
+              Delivery <span id="delivery"></span>
             </div>
-          </form>
+            <div class="deliveryAndDiscount">
+              Discount <span id="discount"></span>
+            </div>
+          </div>
+          <div class="informationContainer">
+            <div class="totalAndTax">
+              Total (exc tax) <span id="total"></span>
+            </div>
+            <div class="totalAndTax">Tax (14%)<span id="tax"></span></div>
+          </div>
+          <div class="informationContainer">
+            <div class="orderTotal">
+              Order Total <span id="orderTotal"></span>
+            </div>
+          </div>
+          <div class="informationContainer">
+            <div id="totalDiscountSummary">Enter your coupon code</div>
+            <div class="disountForm">
+              <input type="text" id="couponCode" />
+              <button id="discountApplyButton">Apply</button>
+            </div>
+          </div>
+          <div class="submitContainer">
+            <button
+              id="submitOrder"
+              class="btn btn-outline-success"
+              onclick="submitFinalOrder()"
+            >
+              Confirm your order
+            </button>
+          </div>
+        </div>
+
+        <!-- message for when cart is empty -->
+        <div id="emptyCartMessage" class="emptyCartMessage hidden">
+          Your cart appears to be empty, head over to the
+          <a href="../catalogue/index.html">catalogue page</a> if you'd like to
+          browse our catalogue :)
         </div>
       </div>
     </div>
@@ -258,5 +272,8 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+
+    <!-- my javascript -->
+    <script type="text/javascript" src="../../main.js"></script>
   </body>
 </html>

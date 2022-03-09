@@ -32,6 +32,9 @@ button {
   text-decoration: underline;
 }
 
+.hidden {
+  display: none;
+}
 /* END OF UNIVERSAL STYLES */
 /*  */
 /*  */
@@ -271,15 +274,45 @@ button {
 /*  */
 /*  */
 /* CATALOGUE PAGE STYLES */
+/* cart button */
+.cartAmountContainer {
+  width: 89%;
+  /* padding-right: 100px; */
+  text-align: end;
+}
 #catalogueContainer {
   width: 90%;
   margin: auto;
 }
 
+/* The filter section */
 #catalogueNav {
   width: 30%;
   float: left;
   margin-top: 30px;
+  padding: 20px;
+  border: 2px solid red;
+}
+
+/* the buttons in the filter section */
+.showItemButton {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  display: inline-block;
+}
+
+.showItemButton:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#filterList li {
+  list-style: none;
+}
+
+#filterList li::before {
+  content: '\00BB';
 }
 
 #catalogueIcons {
@@ -291,7 +324,7 @@ button {
   height: auto;
 }
 
-.filler {
+#filler {
   clear: both;
 }
 
@@ -364,19 +397,14 @@ button {
   display: none;
 }
 
-/* item overlay */
-#itemOverlay {
-  display: none;
-}
-
 /* END OF CATALOGUE PAGE STYLES */
 /*  */
 /*  */
 /*  */
-/* SHIPPING PAGE STYLES */
+/* CHECKOUT PAGE STYLES */
 
-#shipping,
-#shipping nav {
+#checkOut,
+#checkOut nav {
   animation: color 10s ease-in-out infinite;
 }
 
@@ -402,26 +430,196 @@ button {
   }
 }
 
-#shippingContainer {
+#checkOutContainer {
   width: 100%;
   padding: 10px 100px 50px;
 }
 
-.shippingContainer {
-  width: 60%;
+.checkOutFormContainer {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 60% 40%;
+  width: 80%;
   margin: auto;
 }
 
-/* dark class is just to the bold the word information under the company name */
-.dark {
-  font-weight: bold;
+/* the check out form */
+#checkOutForm {
+  background-color: #fff;
+  border-radius: 2rem;
+  padding: 30px;
+  margin: 5px;
 }
-/* hover class is to hover on the the words after information under the company name */
-.hover:hover {
+
+.deliveryCheck {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 5px 15px;
+  border-radius: 1rem;
+  border: 1px solid black;
+}
+
+.deliveryCheck:hover {
+  border: 2px solid rgba(128, 0, 128, 0.3);
+  background-color: rgba(128, 0, 128, 0.1);
+}
+
+.active {
+  border: 2px solid purple;
+  background-color: rgba(128, 0, 128, 0.5);
+}
+
+/* shipping address */
+.deliveryAddressInput {
+  border: 1px solid black;
+  width: 100%;
+  padding: 10px;
+  border-radius: 1rem;
+}
+
+.deliveryAddressInput:hover {
+  border: 2px solid rgba(128, 0, 128, 0.3);
+  background-color: rgba(128, 0, 128, 0.1);
+}
+
+.deliveryAddressInput:focus {
+  border: 2px solid rgba(128, 0, 128, 0.3);
+  background-color: rgba(128, 0, 128, 0.1);
+}
+
+/* payment methods */
+#mastercard,
+#paypal {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border: 1px solid black;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+#mastercard:hover,
+#paypal:hover {
+  border: 2px solid rgba(128, 0, 128, 0.3);
+  background-color: rgba(128, 0, 128, 0.1);
+}
+
+.expirationAndCVV {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 50% 50%;
+}
+
+/* The order summary */
+#checkOutSummary {
+  background-color: #fff;
+  border-radius: 2rem;
+  padding: 30px;
+  margin: 5px;
+}
+
+.informationContainer {
+  padding: 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+/* order summary container classes */
+#orderSummary {
+  width: 100%;
+}
+
+.orderSumContainer {
+  display: grid;
+  gap: 0.2rem;
+  grid-template-columns: 10% 50% 25% 5%;
+}
+
+.tally {
+  display: inline-block;
+}
+
+.description {
+  display: inline-block;
+}
+
+.tallyTotal {
+  display: inline-block;
+  text-align: right;
+}
+
+.removeIcon {
+  display: inline-block;
+  margin: 0 20px;
+  text-align: right;
+  color: rgba(128, 128, 128, 0.5);
+}
+
+.removeIcon:hover {
+  color: #f00;
   cursor: pointer;
 }
 
-/* END OF THE SHIPPING STYLES */
+/* Totals for discount, delivery, total and tax */
+.deliveryAndDiscount,
+.totalAndTax,
+.orderTotal {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+#delivery,
+#discount,
+#total,
+#tax,
+#orderTotal {
+  text-align: right;
+}
+
+/* calculating disocunt section */
+#totalDiscountSummary {
+  text-align: center;
+}
+
+/* class specifically for when the discount is good */
+.acceptedDiscount {
+  text-align: center;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border: 3px solid green;
+  border-radius: 2rem;
+  background-color: rgba(0, 128, 0, 0.5);
+}
+.disountForm {
+  display: grid;
+  gap: 0.2rem;
+  grid-template-columns: 60% 40%;
+}
+
+#discountAmount {
+  text-align: right;
+}
+/* class specifically for when the discount is bad */
+
+.rejectedDiscount {
+  margin: 5px 0;
+  padding: 10px;
+  border: 3px solid red;
+  border-radius: 2rem;
+  background-color: rgba(255, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* submit button */
+.submitContainer {
+  width: 100%;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+/* END OF THE CHECKOUT PAGE STYLES */
 /*  */
 /*  */
 /*  */
@@ -579,11 +777,11 @@ button {
   /*  */
   /*  */
   /* SHIPPING PAGE */
-  #shippingContainer {
+  #checkOutContainer {
     padding: 20px 10px;
   }
 
-  .shippingContainer {
+  .checkOutFormContainer {
     width: 80%;
   }
   /* END OF THE SHIPPING PAGE */
@@ -600,4 +798,139 @@ button {
     padding: 10px;
   }
   /* END OF THE CONTACT US PAGE */
+}
+
+/*  */
+/*  */
+/*  */
+
+/* THE FOLLOWWING ARE STYLES CREATED SPECIFICALLY FOR JAVASCRIPT. IN MY JAVASCRIPT FILE, I'LL BE CREATING ELEMENTS PROGRAMATICALLY AND THESE FOLLOWING STYLES WILL BE ADDED TO THOSE ELEMENTS THROUGH JAVSCRIPT  */
+
+/* overlay */
+.overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Classes for when an item is displayed in it's singular form */
+
+.itemDisplayContainer {
+  display: flex;
+  width: 70%;
+  height: 70%;
+  background-color: #fff;
+  padding: 20px;
+  z-index: 2;
+  border-radius: 2rem;
+}
+
+.itemDisplayImageContainer {
+  width: 50%;
+  height: 100%;
+}
+
+.itemDisplayImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+}
+
+.itemInformationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+/* Classes for when the items in the cart are displayed */
+.closeOverlayButton {
+  display: block;
+  width: 10%;
+  margin-left: 50%;
+  text-align: right;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.closeOverlayButton:hover {
+  color: #000;
+}
+
+.cartItemContainer {
+  width: 70%;
+  height: 70%;
+  background-color: #fff;
+  padding: 40px;
+  z-index: 2;
+  border-radius: 2rem;
+  overflow: auto;
+}
+
+.cartContainerHeading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+.cartInnerHeading {
+  font-family: 'Lobster two', cursive;
+}
+
+.cartCheckOutLink {
+  justify-items: end;
+  margin-bottom: 5px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* if the cart is empty */
+.emptyContainer {
+  margin: 3rem;
+  padding: 2rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* if it has items */
+.cartProductContainer {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.cartProductImage {
+  width: 150px;
+  height: 150px;
+}
+
+.cartProductInformation {
+  padding: 10px;
+  width: 50%;
+  margin-left: 10px;
+  border: 1px solid red;
+}
+
+.cartProductPrice {
+  padding: 10px;
+  width: 50%;
+  margin-left: 10px;
+  border: 1px solid silver;
+}
+
+.cartRemoveItemButton {
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 5px;
+  z-index: 1;
 }
