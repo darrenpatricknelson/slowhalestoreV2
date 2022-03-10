@@ -470,6 +470,14 @@ button {
   background-color: rgba(128, 0, 128, 0.5);
 }
 
+/* dependecies */
+
+.pickUpOptionChosen {
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
+}
+
 /* shipping address */
 .deliveryAddressInput {
   border: 1px solid black;
@@ -491,11 +499,9 @@ button {
 /* payment methods */
 #mastercard,
 #paypal {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   margin-right: 10px;
-  border: 1px solid black;
-  background-color: #fff;
   border-radius: 1rem;
 }
 
@@ -906,26 +912,26 @@ button {
 .cartProductContainer {
   display: flex;
   padding: 10px;
+  width: 100%;
   border-bottom: 1px solid grey;
 }
 
 .cartProductImage {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 
 .cartProductInformation {
   padding: 10px;
-  width: 50%;
   margin-left: 10px;
-  border: 1px solid red;
 }
 
 .cartProductPrice {
   padding: 10px;
-  width: 50%;
-  margin-left: 10px;
-  border: 1px solid silver;
+  width: 70%;
+  text-align: center;
+  margin: 0 auto 10px;
+  border-bottom: 1px solid black;
 }
 
 .cartRemoveItemButton {

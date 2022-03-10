@@ -86,7 +86,7 @@
               id="deliverCheck"
               class="deliveryCheck"
             >
-              <i class="fa-solid fa-truck"></i> Some text here
+              <i class="fa-solid fa-truck"></i> Deliver
             </button>
             <br />
             <button
@@ -95,68 +95,85 @@
               id="pickUp"
               class="deliveryCheck"
             >
-              <i class="fa-solid fa-bag-shopping"></i> Some text here
+              <i class="fa-solid fa-bag-shopping"></i> Pick up
             </button>
           </div>
-          <br />
-          <div class="deliveryAddress">
-            <p>Shipping address</p>
-            <input
-              type="text"
-              class="deliveryAddressInput"
-              placeholder="Enter your shipping address"
-            />
-          </div>
-          <br />
-
-          <!-- payment -->
-          <h3>Payment information</h3>
-          <div class="paymentInformation">
-            <button id="mastercard">
-              <img
-                src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+          <div class="deliveryOptionChosen">
+            <br />
+            <div class="deliveryAddress">
+              <p>Shipping address</p>
+              <input
+                type="text"
+                class="deliveryAddressInput"
+                placeholder="Enter your shipping address"
               />
-            </button>
-            <button id="paypal">
-              <img src="https://img.icons8.com/color/48/000000/paypal.png" />
-            </button>
-          </div>
-          <br />
-          <div class="cardPayment">
-            <p>Name on card</p>
-            <input
-              type="text"
-              class="deliveryAddressInput"
-              placeholder="Enter the name"
-            />
+            </div>
             <br />
+
+            <!-- payment -->
+            <h3>Payment options</h3>
+            <p>Please pick a payment option</p>
+            <div class="paymentInformation">
+              <button id="mastercard">
+                <img
+                  src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+                />
+              </button>
+              <button id="paypal">
+                <img
+                  src="https://img.icons8.com/external-flat-land-kalash/64/000000/external-cash-finance-and-banking-flat-land-kalash-2.png"
+                />
+              </button>
+            </div>
             <br />
-            <p>Card number</p>
-            <input
-              type="text"
-              class="deliveryAddressInput"
-              placeholder="Enter the card number"
-            />
-            <br />
-            <br />
-            <div class="expirationAndCVV">
-              <div class="expiration">
-                <p>Expiration</p>
+            <div id="cardPayment">
+              <div class="cardPayment">
+                <p>Name on card</p>
                 <input
                   type="text"
                   class="deliveryAddressInput"
-                  placeholder="MM/YY"
+                  placeholder="Enter the name"
                 />
-              </div>
-              <div class="CVV">
-                <p>CVV</p>
+                <br />
+                <br />
+                <p>Card number</p>
                 <input
                   type="text"
                   class="deliveryAddressInput"
-                  placeholder="CVV"
+                  placeholder="Enter the card number"
                 />
+                <br />
+                <br />
+                <div class="expirationAndCVV">
+                  <div class="expiration">
+                    <p>Expiration</p>
+                    <input
+                      type="text"
+                      class="deliveryAddressInput"
+                      placeholder="MM/YY"
+                    />
+                  </div>
+                  <div class="CVV">
+                    <p>CVV</p>
+                    <input
+                      type="text"
+                      class="deliveryAddressInput"
+                      placeholder="CVV"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
+            <div id="cashPayment">
+              Please have the total amount when delivery/pick up is made
+            </div>
+          </div>
+
+          <div class="pickUpOptionChosen">
+            <h3>You can pick up at the following location:</h3>
+            <p>Location: Random place at Random area</p>
+            <p>Some more location information</p>
+            <p>Some more location information</p>
           </div>
         </div>
 
@@ -266,6 +283,10 @@
     </footer>
 
     <!-- javscript -->
+    <!-- jQuery -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <!-- bootstrap js -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

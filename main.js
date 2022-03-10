@@ -1,3 +1,38 @@
+/*
+REFERENCES:
+
+Needed alot of help during this project so I dont alot of research. 
+All of the code is mine.
+
+I went from website to website gathering information and ways to solve my problems and did not copy the links of the websites but I used references such as:
+
+- W3schools
+- stackoverflow 
+and 
+- youtube
+
+One video that really helped me was this one:
+- https://www.youtube.com/watch?v=1LFfp8bTpvc&t=894s&ab_channel=AllThingsJavaScript%2CLLC
+-  I struggled with arrayd and objects and the channel "All things Javascript, LLC" really provided good advice
+- https://www.youtube.com/channel/UCRQhZGXC0WK85YRXl7nGX0w
+
+I also got alot of help from my friend and mentor Evan Christians
+- The code was from lines 904 to 945 was written with his help
+
+FOR THE JQUERY:
+- function that shows and hides is in the delivery form. Choosing different delivery options and different payment options will yeld different results
+- drop-down menu is the accordion on the catalogue page
+- animation is the the scaling of the payment option buttons
+- chained effects are also apart of the payment option buttons
+
+
+OTHER NOTES: 
+- I contemplated clearing the check out page once the user clicks the confirm order button. I would have done this by clearing the lineItemsArray in the local storage. However, I decided againts this because I want the code reviewer to test the randomly generated number that appears on that buttons click
+- I really struggled trying to figure out all the javascript in this task so my css is definetely lacking. I don't think my website looks as good as it could but my main focus was implementing the javscript. apologies for that
+- The user can add multiple of the same product to their cart. This presented me with a tough solution to figure out when it comes to displaying cards and amounnts. My mentor Evan Christians helped me through this process. However, I am still responsible for the flow of this .js file. He just helped me out with the quantity bit of multiple products in the cart.
+
+*/
+
 // STEP 1: Check the local storage to see if the user visited our site before and if they have any items in their cart...
 // Notably, this won't be our onload function. However, our onload function will have a line of code that runs this function and returns the lineItemsArray
 var lineItemsArray = new Array(); // creating a new empty array
@@ -42,6 +77,11 @@ class itemDescription {
     overlay.classList.add('overlay');
     overlay.innerHTML = '';
 
+    // add a close container to the overlay
+    let closeOverlayButton = document.createElement('div');
+    closeOverlayButton.classList.add('closeOverlayButton');
+    closeOverlayButton.innerHTML = 'Close Cart  X';
+
     // creat a div the will house all of the item content
     let container = document.createElement('div');
     container.classList.add('itemDisplayContainer');
@@ -74,16 +114,6 @@ class itemDescription {
       this.price +
       '.00';
 
-    // create an add to cart button
-    // classList: btn btn-outline-success addToCart
-    let addToCartButton = document.createElement('button');
-    addToCartButton.classList = 'btn btn-outline-success addToCart';
-    addToCartButton.innerHTML = 'Add to Cart';
-    // add an event listener to this button
-    addToCartButton.addEventListener('click', function (e) {
-      this.addToCart();
-    });
-
     // Step 2: Append children to their parents
     // Append the inner items to the inner container
     // the image
@@ -91,18 +121,17 @@ class itemDescription {
     // the information
     itemInformation.appendChild(itemHeading);
     itemInformation.appendChild(itemBody);
-    itemInformation.appendChild(addToCartButton);
 
     // Append the inner container to the outer container
     container.appendChild(imageContainer);
     container.appendChild(itemInformation);
 
     // append the container to the overlay
+    overlay.appendChild(closeOverlayButton);
     overlay.appendChild(container);
 
-    // Step 3: Add an event listener so that when the overlay is clicked, it is closed and cleared
-    overlay.addEventListener('click', function () {
-      overlay.innerHTML = '';
+    // Step 3: Add an event listener so that when the user clcks the close button, the overlay is closed and cleared
+    closeOverlayButton.addEventListener('click', function () {
       overlay.classList.add('hidden');
       overlay.classList.remove('overlay');
     });
@@ -112,17 +141,29 @@ class itemDescription {
   addToCart() {
     let lineItemsArray = checkStorage();
 
-    let LineItems = {
+    let lineItem = {
       name: this.name,
       size: this.size,
       price: this.price,
       description: this.description,
       image: this.image,
       id: this.id,
-      type: this.type
+      type: this.type,
+      quantity: 1
     };
 
-    lineItemsArray.push(LineItems);
+    let existingLineItemIndex = lineItemsArray.findIndex(
+      (li) => li.id == lineItem.id
+    );
+
+    if (existingLineItemIndex >= 0) {
+      lineItemsArray[existingLineItemIndex].quantity++;
+    } else {
+      lineItemsArray.push(lineItem);
+    }
+    let cartTotal = cartPriceTotal(lineItemsArray); // a cart total of all items
+
+    alert(`Your total is R ${cartTotal}.00 before tax`);
     localStorage.setItem('lineItemsArray', JSON.stringify(lineItemsArray));
 
     // checks the amount stored in the cart
@@ -138,11 +179,11 @@ class itemDescription {
 let item1 = new itemDescription(
   'Black Set', // name
   'XS, S, M, L, XL, XXL', // size
-  80,
-  'A pretty Black bikini set',
-  '../../images/blackSet.jpg',
-  'item1',
-  'set'
+  80, // price
+  'A pretty Black bikini set', // description
+  '../../images/blackSet.jpg', // image source
+  'item1', // ID
+  'set' // clothing class
 );
 let item2 = new itemDescription(
   'Emarald Set',
@@ -273,9 +314,12 @@ const cartAmount = () => {
   // I mentioned above that we will return lineItemsArray at the end of the checkStorage() function and my reason was; 'in functions further down this file, we'll store that returned value within a newly declared variable', below is an example of that in action:
   // We will use this information to display the amount of items in the cart
   let lineItemsArray = checkStorage();
-  let i = lineItemsArray.length; // This will store a number in _i_
+  let numItems = lineItemsArray.reduce(
+    (acc, lineItem) => acc + lineItem.quantity,
+    0
+  );
   let cartAmount = document.getElementById('cartAmount'); // This connects to the DOM, and returns the element that displays the cart
-  cartAmount.innerHTML = i; // The inner HTML of the cart element now displays the amount of items in the LineItemsArray
+  cartAmount.innerHTML = numItems; // The inner HTML of the cart element now displays the amount of items in the LineItemsArray
 };
 
 // =====
@@ -382,84 +426,17 @@ const buildCatalogue = () => {
 // =====>
 
 // STEP 7: Create a mini display section for a quick view of the items in the users cart
-// This will be a 2 step process as I first need to create fucntions that will extract certain values
-// I have a problem, since the user is able to add more than once of the same product to their cart. This meeans that when they click on their cart and their items are displayed, cards are created for each product, thus in their cart, there will be more than one of the same card. Not very proffessional.
-// I need to go through the lineItemsArray and do a check for duplicate objects. If there are duplicates, I need a new array of unique items for the card creation however the totals on theirs particualr cards will display the amount of times they have added. This is a 2 step process
 
-// Step 7.1: Create a new and unique array using the map() and reduce()
-// will also be using the [...spread] operator
-// we will use this array to display eat item ONCE is the cart
-const uniqueLineItemsArray = (mainArray) => {
-  let uniqueLineItemsArray = [
-    ...mainArray.reduce((map, obj) => map.set(obj.id, obj), new Map()).values()
-  ];
-
-  // This is a unique array in that the item objects only appear once
-  return uniqueLineItemsArray;
-};
-
-// we now have 2 arrays: _lineItemsArray_ and _uniqueLineItemsArray_
-// Now I need to sort the prices out
-// I'm going to need a total cart amount as well as individual totals(if the product is added more than once)
-
-const uniqueLineItemsArrayPrice = (mainArray) => {
-  let priceList = [];
-
-  for (let item of mainArray) {
-    priceList.push(item.price);
-  }
-  // This is ALL the prices for all the items in the cart
-  return priceList;
-};
-
-// we need to calculate the total of the above price list
+// Step 7.1:
+// we need to calculate the total of all the prices in teh lineItemsArray
+// The following is a function to do that, we will use it further down
 const cartPriceTotal = (mainArray) => {
-  const sum = [...mainArray].reduce((partialSum, a) => partialSum + a, 0);
+  const sum = mainArray.reduce((acc, x) => acc + x.price * x.quantity, 0);
 
   return sum;
 };
 
-// EVAN HERE THE CODE THAT CREATES AN OBJECT OUT OF THE REPREATING ARRAYS
-// HOWEVER, I DON'T KNOW WHAT TO DO AFTER THAT POINT
-// I need to figure out individual totals
-// I struggled with and All Things JavaScript, LLC on youtube helped me figure it out
-// I tweaked it abit and add the values to the object instead of adding the index's
-const priceIndex = (arr, elem) => {
-  return arr.reduce(
-    (obj, val) => {
-      if (elem === val) obj[elem] = obj[elem].concat(val);
-      return obj;
-    },
-    {
-      [elem]: []
-    }
-  );
-};
-
-const repeatingEntries = (mainArray) => {
-  let uniqSet = new Set(mainArray);
-  let repeatingEntries = [];
-
-  for (let elem of uniqSet) {
-    repeatingEntries.push(priceIndex(mainArray, elem));
-  }
-  return repeatingEntries;
-  // reduceArrayToValues(repeatingEntries);
-};
-
-const reduceArrayToValues = (mainObject) => {
-  let values = new Array();
-
-  values.push(
-    Object.values(mainObject).map((values) => {
-      return mainObject.vales;
-    })
-  );
-
-  return values;
-};
-
-// Step 6.2: display everything
+// Step 7.2: display everything
 const displayCartItems = () => {
   // Step 1: Create all the containers
   // the overlay will cover the entire screen with a dark transparent background
@@ -471,7 +448,7 @@ const displayCartItems = () => {
   // add a close container to the overlay
   let closeOverlayButton = document.createElement('div');
   closeOverlayButton.classList.add('closeOverlayButton');
-  closeOverlayButton.innerHTML = 'Close Cart';
+  closeOverlayButton.innerHTML = 'Close Cart  X';
 
   // create a div the will house all of the item content
   let container = document.createElement('div');
@@ -501,11 +478,16 @@ const displayCartItems = () => {
 
   // =====>
 
-  // Step 2: we are going to use the functions we create above to store all the values
+  // Step 2: we are going to use the function we create above to store the value for the total of all items
   let lineItemsArray = checkStorage(); // array in the storage location
-  let uniqueLIArray = uniqueLineItemsArray(lineItemsArray); // a unique set of the above array
-  let priceList = uniqueLineItemsArrayPrice(lineItemsArray); // all the prices of the main array
-  let cartTotal = cartPriceTotal(priceList); // a cart total of the prices above
+  let cartTotal = cartPriceTotal(lineItemsArray); // a cart total of all items
+
+  // Display the total price so that the user knows before heading to the checkout page
+  let totalPriceContainer = document.createElement('div');
+  totalPriceContainer.classList.add('cartProductPrice');
+  totalPriceContainer.innerHTML = `The total for your order is <strong>R ${cartTotal}.00</strong> before tax. Head to the checkout page to finalise your order.`;
+
+  container.appendChild(totalPriceContainer);
 
   // if there are no items in the cart, display a message saying the cart is empty
   if (lineItemsArray.length === 0) {
@@ -515,14 +497,14 @@ const displayCartItems = () => {
 
     // hide the link to the check out page
     checkOutLink.style.display = 'none';
+    totalPriceContainer.style.display = 'none';
 
     // append to the main container
     container.appendChild(emptyContainer);
   }
 
-  // Step 2: Now I need use these two arrays seperately
-  // uniqueLineItemsArray will be used to display while
-  uniqueLIArray.forEach(function (item) {
+  // Step 2: Using the lineItemsArray, we will build the mini page
+  lineItemsArray.forEach(function (item) {
     // create the container and some styles
     let itemContainer = document.createElement('div');
     itemContainer.classList.add('cartProductContainer');
@@ -536,15 +518,25 @@ const displayCartItems = () => {
     // create a body that will house the information about the item
     let itemBody = document.createElement('div');
     itemBody.classList.add('cartProductInformation');
-    itemBody.innerHTML = `<strong><u>Product</u></strong>: ${item.name}<br> <strong><u>Size</u></strong>: ${item.size} <br><br> <strong><u>Price</u></strong>: R ${item.price}.00`;
+    itemBody.innerHTML = `<strong><u>Product</u></strong>: ${
+      item.name
+    }<br> <strong><u>Size</u></strong>: ${
+      item.size
+    } <br> <strong><u>Price</u></strong>: R ${
+      item.price
+    }.00 <br> <strong><u>Quantity</u></strong> x${
+      item.quantity
+    } <br> <strong><u>Total</u></strong>: R ${
+      item.quantity * item.price
+    }.00 <br><br>`;
 
     // add a button to remove item from cart
     let removeItemButton = document.createElement('button');
     removeItemButton.classList =
       'btn btn-outline-danger cartRemoveItemButton remove';
-    removeItemButton.id = item.id;
-
     removeItemButton.innerHTML = 'Remove item from your cart';
+    // The button will have a call back funtion further down
+    // I used this same process in one of my previous tasks
 
     // add button to the item body
     itemBody.appendChild(removeItemButton);
@@ -556,28 +548,12 @@ const displayCartItems = () => {
     container.appendChild(itemContainer);
   });
 
-  // we can now get an array with repeated price values
-  // EVAN, HERE IS THE POINT WHERE I STORE THE VALUE OF SAID OBJECT. I CONSOLE.TABLED IT SO THAT YOU CAN SEE THE OUTPUT.
-  // ANY SUGGESTIONS?
-  let repeatedPriceListArray = repeatingEntries(priceList);
-  let newrepeatedPriceListArray = reduceArrayToValues(repeatedPriceListArray);
-  console.table(repeatedPriceListArray);
-
-  repeatedPriceListArray.forEach(function (price) {
-    let totalOfIndividualPrice = cartPriceTotal(repeatedPriceListArray); // a cart total of the prices above
-    // created a container that will display the total amount of products and total price
-    let itemPrice = document.createElement('div');
-    itemPrice.classList.add('cartProductPrice');
-    itemPrice.innerHTML = `Your total is R ${cartTotal}.00`;
-
-    container.appendChild(itemPrice);
-  });
-
   // append the container and close button to the overlay
   overlay.appendChild(closeOverlayButton);
   overlay.appendChild(container);
 
   // the function to delete items from the storage
+  // We are storing buttons in an arary and then using the buttons index to delete the index in the lineItemsArray
   let delButtons = document.getElementsByClassName('remove');
 
   // used that array to execute the following code
@@ -586,10 +562,15 @@ const displayCartItems = () => {
       // getting the array using the function we wrote above
       let lineItemsArray = checkStorage();
 
-      // using the splice method to delete an indexed item in teh array
-      lineItemsArray.splice(i, 1);
+      // check the quantities of the items
+      if (lineItemsArray[i].quantity > 1) {
+        lineItemsArray[i].quantity--;
+        // if the item is = 1, delete the index completely using the splice method
+      } else if (lineItemsArray[i].quantity <= 1) {
+        lineItemsArray.splice(i, 1);
+      }
 
-      // setting the array back to the storage location
+      // sending the array back to the storage location
       localStorage.setItem('lineItemsArray', JSON.stringify(lineItemsArray));
 
       // displaying the content
@@ -598,7 +579,7 @@ const displayCartItems = () => {
     });
   }
 
-  // add an event listener so that when the overlay is clicked, it is closed and cleared
+  // add an event listener so that when the close button on the overlay is clicked, it is closed and cleared
   closeOverlayButton.addEventListener('click', function () {
     overlay.classList.add('hidden');
     overlay.classList.remove('overlay');
@@ -668,22 +649,28 @@ const showFormHideMessage = () => {
 let deliverButton = document.getElementById('deliverCheck');
 let pickUpButton = document.getElementById('pickUp');
 
-deliverButton.addEventListener('click', function (e) {
-  deliverButton.classList.add('active');
-  pickUpButton.classList.remove('active');
-  // I used local storage to store the delivery amount
-  localStorage.setItem('deliveryPrice', JSON.stringify(40));
-  displayCheckOutInformation();
-});
+// add functionality to those buttons
+if (deliverButton) {
+  deliverButton.addEventListener('click', function (e) {
+    deliverButton.classList.add('active');
+    pickUpButton.classList.remove('active');
+    // I used local storage to store the delivery amount
+    localStorage.setItem('deliveryPrice', JSON.stringify(40));
+    displayCheckOutInformation();
+  });
+}
 
-pickUpButton.addEventListener('click', function (e) {
-  deliverButton.classList.remove('active');
-  pickUpButton.classList.add('active');
+if (pickUpButton) {
+  pickUpButton.addEventListener('click', function (e) {
+    deliverButton.classList.remove('active');
+    pickUpButton.classList.add('active');
 
-  localStorage.setItem('deliveryPrice', JSON.stringify(0));
-  displayCheckOutInformation();
-});
+    localStorage.setItem('deliveryPrice', JSON.stringify(0));
+    displayCheckOutInformation();
+  });
+}
 
+// I'm using the local storage to do a delivery check
 const calculateDelivery = () => {
   let amount = localStorage.getItem('deliveryPrice', JSON.stringify());
   // fetch and return the amount in the local storage
@@ -719,37 +706,39 @@ let couponCodes = ['discount20', 'discount30', 'discount50'];
 
 // discount button
 let discountButton = document.getElementById('discountApplyButton');
-discountButton.addEventListener('click', function (e) {
-  e.preventDefault();
-  let couponCode = document.getElementById('couponCode');
-  let couponCodeValue = couponCode.value;
+if (discountButton) {
+  discountButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    let couponCode = document.getElementById('couponCode');
+    let couponCodeValue = couponCode.value;
 
-  totalDiscountSummary.innerHTML = '';
+    totalDiscountSummary.innerHTML = '';
 
-  // checking the value of the coupon that user inserted against the values in my coupon array
-  // Depending on the result, it will display a certain message
-  if (couponCodeValue == couponCodes[0]) {
-    totalDiscountSummary.innerHTML = 'Your discount is <u>20%</u> off';
-    totalDiscountSummary.classList.add('acceptedDiscount');
-    totalDiscountSummary.classList.remove('rejectedDiscount');
-  } else if (couponCodeValue == couponCodes[1]) {
-    totalDiscountSummary.innerHTML = 'Your discount is <u>30%</u> off';
-    totalDiscountSummary.classList.add('acceptedDiscount');
-    totalDiscountSummary.classList.remove('rejectedDiscount');
-  } else if (couponCodeValue == couponCodes[2]) {
-    totalDiscountSummary.innerHTML = 'Your discount is <u>50%</u> off';
-    totalDiscountSummary.classList.add('acceptedDiscount');
-    totalDiscountSummary.classList.remove('rejectedDiscount');
-  } else {
-    totalDiscountSummary.innerHTML = 'That discount code does not exist';
-    totalDiscountSummary.classList.add('rejectedDiscount');
-    totalDiscountSummary.classList.remove('acceptedDiscount');
-  }
+    // checking the value of the coupon that user inserted against the values in my coupon array
+    // Depending on the result, it will display a certain message
+    if (couponCodeValue == couponCodes[0]) {
+      totalDiscountSummary.innerHTML = 'Your discount is <u>20%</u> off';
+      totalDiscountSummary.classList.add('acceptedDiscount');
+      totalDiscountSummary.classList.remove('rejectedDiscount');
+    } else if (couponCodeValue == couponCodes[1]) {
+      totalDiscountSummary.innerHTML = 'Your discount is <u>30%</u> off';
+      totalDiscountSummary.classList.add('acceptedDiscount');
+      totalDiscountSummary.classList.remove('rejectedDiscount');
+    } else if (couponCodeValue == couponCodes[2]) {
+      totalDiscountSummary.innerHTML = 'Your discount is <u>50%</u> off';
+      totalDiscountSummary.classList.add('acceptedDiscount');
+      totalDiscountSummary.classList.remove('rejectedDiscount');
+    } else {
+      totalDiscountSummary.innerHTML = 'That discount code does not exist';
+      totalDiscountSummary.classList.add('rejectedDiscount');
+      totalDiscountSummary.classList.remove('acceptedDiscount');
+    }
 
-  // running other functions
-  calculateDiscount();
-  displayCheckOutInformation();
-});
+    // running other functions
+    calculateDiscount();
+    displayCheckOutInformation();
+  });
+}
 
 // =====
 // =====
@@ -759,9 +748,7 @@ discountButton.addEventListener('click', function (e) {
 const displayCheckOutInformation = () => {
   // store all my variables
   let lineItemsArray = checkStorage();
-  let uniqueLIArray = uniqueLineItemsArray(lineItemsArray);
-  let priceList = uniqueLineItemsArrayPrice(lineItemsArray);
-  let cartTotal = cartPriceTotal(priceList);
+  let cartTotal = cartPriceTotal(lineItemsArray);
   let discountTotal = calculateDiscount();
   let deliveryTotal = calculateDelivery();
 
@@ -775,7 +762,7 @@ const displayCheckOutInformation = () => {
   let orderTotal = document.getElementById('orderTotal');
 
   // using the lineItemsArray, construct order summary information
-  for (let item of uniqueLIArray) {
+  for (let item of lineItemsArray) {
     // create a div conttainer
     let container = document.createElement('div');
     container.classList.add('orderSumContainer');
@@ -794,9 +781,9 @@ const displayCheckOutInformation = () => {
     removeIcon.classList.add('removeIcon');
 
     // input information
-    tally.innerHTML = `x2`;
+    tally.innerHTML = `x${item.quantity}`;
     description.innerHTML = item.name;
-    tallyTotal.innerHTML = `R ${item.price * 2}.00`;
+    tallyTotal.innerHTML = `R ${item.price * item.quantity}.00`;
     removeIcon.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
 
     // Append children to their parent
@@ -830,10 +817,15 @@ const displayCheckOutInformation = () => {
       // getting the array using the function we wrote above
       let lineItemsArray = checkStorage();
 
-      // using the splice method to delete an indexed item in teh array
-      lineItemsArray.splice(i, 1);
+      // check the quantities of the items
+      if (lineItemsArray[i].quantity > 1) {
+        lineItemsArray[i].quantity--;
+        // if the item is = 1, delete the index completely using the splice method
+      } else if (lineItemsArray[i].quantity <= 1) {
+        lineItemsArray.splice(i, 1);
+      }
 
-      // setting the array back to the storage location
+      // sending the array back to the storage location
       localStorage.setItem('lineItemsArray', JSON.stringify(lineItemsArray));
 
       // displaying the content
@@ -870,7 +862,36 @@ const generateReferenceCode = (stringLength) => {
 
 // The following is jQuery functions
 $(document).ready(function () {
-  // Accordion function
+  // fucntion that hides or shows
+  // first one is choosing a delivery option
+  $('.deliveryOptionChosen').hide();
+  $('.pickUpOptionChosen').hide();
+
+  $('#deliverCheck').click(function () {
+    $('.deliveryOptionChosen').show();
+    $('.pickUpOptionChosen').hide();
+  });
+
+  $('#pickUp').click(function () {
+    $('.deliveryOptionChosen').hide();
+    $('.pickUpOptionChosen').show();
+  });
+
+  // second one is choosing a payment option
+  $('#cardPayment').hide();
+  $('#cashPayment').hide();
+
+  $('#mastercard').click(function () {
+    $('#cardPayment').show();
+    $('#cashPayment').hide();
+  });
+
+  $('#paypal').click(function () {
+    $('#cardPayment').hide();
+    $('#cashPayment').show();
+  });
+
+  // Drop-down menu (accordion)
   // This is to start the accordion in the hidden position
   $('.container1').slideUp();
   $('.container2').slideUp();
@@ -898,6 +919,25 @@ $(document).ready(function () {
     } else {
       $('.container2').slideUp();
     }
+  });
+
+  // jquery animation and chained effects
+  $('#mastercard').click(function () {
+    $('#mastercard')
+      .animate({ height: '100px', width: '100px' })
+      .addClass('active');
+    $('#paypal')
+      .animate({ height: '80px', width: '80px' })
+      .removeClass('active');
+  });
+
+  $('#paypal').click(function () {
+    $('#mastercard')
+      .animate({ height: '80px', width: '80px' })
+      .removeClass('active');
+    $('#paypal')
+      .animate({ height: '100px', width: '100px' })
+      .addClass('active');
   });
 });
 
@@ -971,27 +1011,3 @@ document.getElementById('showAcc').addEventListener('click', function (e) {
 document.getElementById('showOneP').addEventListener('click', function (e) {
   showOnePiece();
 });
-
-/*
-REFERENCES:
-
-Needed alot of help during this project so I dont alot of research. 
-All of the code is mine.
-
-I went from website to website gathering information and ways to solve my problems and did not copy the links of the websites but I used references such as:
-
-- W3schools
-- stackoverflow 
-and 
-- youtube
-
-One video that really helped me was this one:
-- https://www.youtube.com/watch?v=1LFfp8bTpvc&t=894s&ab_channel=AllThingsJavaScript%2CLLC
--  I struggled with arrayd and objects and the channel "All things Javascript, LLC" really provided good advice
-- https://www.youtube.com/channel/UCRQhZGXC0WK85YRXl7nGX0w
-
-I also got alot of help from my friend and mentor Evan Christians
-- The code was from lines 904 to 945 was written with his help
-
-
-*/
